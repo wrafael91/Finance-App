@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
-import Dashboard from "./components/Dashboard";
-import TransactionForm from "./components/TransactionForm";
-import TransactionList from "./components/TransactionList";
+import React, { useState } from 'react';
+import Dashboard from './components/Dashboard';
+import TransactionForm from './components/TransactionForm';
+import TransactionList from './components/TransactionList';
+import './App.css';
 
 function App() {
   const [transactions, setTransactions] = useState([]);
@@ -9,16 +10,16 @@ function App() {
   const addTransaction = (newTransaction) => {
     const transaction = {
       ...newTransaction,
-      id: Date.now() // usar la fecha actual como id único
+      id: Date.now()
     };
     setTransactions([...transactions, transaction]);
   };
 
   return (
-    <div>
-      <h1>App de finanzas</h1>
-      <Dashboard />
-      <TransactionForm onAddTransaction={addTransaction}/>
+    <div className='container'>
+      <h1>Mi App de Finanzas</h1>
+      <Dashboard transactions={transactions} />
+      <TransactionForm onAddTransaction={addTransaction} />
       <TransactionList transactions={transactions} />
     </div>
   );

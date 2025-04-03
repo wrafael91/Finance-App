@@ -8,7 +8,9 @@ function TransactionList({transactions=[]}) {
         ) : (
           transactions.map((transaction) =>( 
           <li key={transaction.id}>
-            {transaction.description} - ${transaction.amount} ({transaction.type})
+            <span>{transaction.description}</span>
+            <span>${transaction.amount}</span>
+            <span>({transaction.type})</span>
           </li>
           ))
         )}
