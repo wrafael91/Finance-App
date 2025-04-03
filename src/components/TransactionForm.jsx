@@ -13,43 +13,58 @@ function TransactionForm({onAddTransaction}) {
       return;
     }
 
+    if (isNaN(amount)){
+      alert('Por favor ingresa un monto válido');
+      return;
+    }
+
     onAddTransaction({
       description,
       amount: Number(amount),
       type
     });
-  }
+
+    setDescription('');
+    setAmount('');
+    setType('expense');
+  };
 
   return (
     <div>
-      <h3>agregar transaccion</h3>
+      <h3>Agregar Transacción</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-          Descripción:
-          <input 
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            />
-        </label>
-        <label>
-          Monto:
-          <input 
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            />
-        </label>
-        <label>
-          Tipo:
-          <select
-            value={type}
-            onChange={(e) => setType(e.target.value)}
-          >
-            <option value="income">Ingreso</option>
-            <option value="expense">Gasto</option>
-          </select>
-        </label>
+        <div>
+          <label>
+            Descripción:
+            <input 
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              />
+          </label>
+        </div>
+        <div>
+          <label>
+            Monto:
+            <input 
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              />
+          </label>
+        </div>
+        <div>
+          <label>
+            Tipo:
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            >
+              <option value="income">Ingreso</option>
+              <option value="expense">Gasto</option>
+            </select>
+          </label>
+        </div>
         <button type="submit">Agregar</button>
       </form>
     </div>

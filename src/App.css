@@ -53,3 +53,44 @@ li:last-child {
   border-bottom: none;
 }
 
+.no-transactions {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-description {
+  flex: 2;
+  font-weight: bold;
+}
+
+.transaction-amount {
+  flex: 1;
+  text-align: right;
+  color: #007bff;
+}
+
+.transaction-type {
+  flex: 1;
+  text-align: right;
+  font-style: italic;
+}
+
+.transaction-type.income {
+  color: green;
+}
+
+.transaction-type.expense {
+  color: red;
+}
