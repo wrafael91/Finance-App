@@ -23,12 +23,14 @@ function App() {
       <h1>Mi App de Finanzas</h1>
       <Dashboard transactions={transactions} />
       <TransactionForm onAddTransaction={addTransaction} />
+      <div className="filter-container">
         <label>Filtrar por:</label>
           <select value={filter} onChange={(e) => setFilter(e.target.value)}>
             <option value="all">Todos</option>
             <option value="income">Ingresos</option>
             <option value="expense">Gastos</option>
           </select>
+      </div>
       <TransactionList transactions={transactions} filter={filter}/>
     </div>
   );
