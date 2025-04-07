@@ -17,6 +17,11 @@ function App() {
     console.log('Transacciones actuales:', [...transactions, transaction]);
   };
 
+  const deleteTransaction = (id) => {
+    const updatedTransactions = transactions.filter((transaction) => transaction.id !== id);
+    setTransactions(updatedTransactions)
+  }
+
   console.log('Filtro actual en App:', filter);
   return (
     <div className='container'>
@@ -31,7 +36,11 @@ function App() {
             <option value="expense">Gastos</option>
           </select>
       </div>
-      <TransactionList transactions={transactions} filter={filter}/>
+      <TransactionList 
+        transactions={transactions} 
+        filter={filter}
+        onDeleteTransaction={deleteTransaction}
+        />
     </div>
   );
 }

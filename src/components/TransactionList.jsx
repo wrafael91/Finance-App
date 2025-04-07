@@ -1,4 +1,4 @@
-function TransactionList({transactions=[], filter}) {
+function TransactionList({transactions=[], filter, onDeleteTransaction}) {
 
   const filteredTransactions = filter === 'all' ?
     transactions : transactions.filter((transaction) => transaction.type === filter);
@@ -18,7 +18,14 @@ function TransactionList({transactions=[], filter}) {
             <span className="transaction-description">{transaction.description}</span>
             <span className="transaction-amount">${transaction.amount}</span>
             <span className={`transaction-type ${transaction.type}`}>
-              {transaction.type === 'income' ? 'Ingreso' : 'Gasto'}</span>
+              {transaction.type === 'income' ? 'Ingreso' : 'Gasto'}
+            </span>
+            <button
+              className="delete-button"
+              onClick={() => onDeleteTransaction(transaction.id)}
+            >
+              Eliminar
+            </button>
           </li>
           ))
         )}
