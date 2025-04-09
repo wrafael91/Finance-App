@@ -1,4 +1,15 @@
+import { useState } from "react";
+
 function TransactionList({transactions=[], filter, onDeleteTransaction}) {
+  const [removingId, setRemovingId] = useState(null);
+
+  const handleDelete = (id) => {
+    setRemovingId(id);
+    setTimeout(() => {
+      onDeleteTransaction(id);
+      setRemovingId(null);
+    }, 500);
+  };
 
   const filteredTransactions = filter === 'all' ?
     transactions : transactions.filter((transaction) => transaction.type === filter);
@@ -14,7 +25,9 @@ function TransactionList({transactions=[], filter, onDeleteTransaction}) {
           <li className="no-transactions">No hay transacciones aún</li>
         ) : (
           filteredTransactions.map((transaction) =>( 
-          <li key={transaction.id} className="transaction-item">
+          <li 
+            key={transaction.id} 
+            className={`transaction-item ${removingId === transaction.id ? 'removing' : ''}`}>
             <span className="transaction-description">{transaction.description}</span>
             <span className="transaction-amount">${transaction.amount}</span>
             <span className={`transaction-type ${transaction.type}`}>
@@ -22,7 +35,8 @@ function TransactionList({transactions=[], filter, onDeleteTransaction}) {
             </span>
             <button
               className="delete-button"
-              onClick={() => onDeleteTransaction(transaction.id)}
+              onClick={() => handleDelete(transaction.id)}
+              disabled={removingId === transaction.id}
             >
               Eliminar
             </button>
