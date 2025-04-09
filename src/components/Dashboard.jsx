@@ -10,11 +10,21 @@ function Dashboard({ transactions }) {
   const balance = totalIncome - totalExpenses;
 
   return (
-    <div>
-      <h2>Dashboard</h2>
-      <p>Ingresos: ${totalIncome}</p>
-      <p>Gastos: ${totalExpenses}</p>
-      <p>Balance: ${balance}</p>
+    <div className="dashboard">
+      <div className="dashboard-card balance">
+        <h3>Balance Total</h3>
+        <p className={`balance ${balance >= 0 ? 'positive' : 'negative'}`}>
+          ${balance}
+        </p>
+      </div>
+      <div className="dashboard-card income">
+        <h3>Ingresos</h3>
+        <p className="income">${totalIncome}</p>
+      </div>
+      <div className="dashboard-card expense">
+        <h3>Gastos</h3>
+        <p className="expense">${totalExpenses}</p>
+      </div>
     </div>
   );
 }

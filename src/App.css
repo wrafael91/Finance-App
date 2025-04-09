@@ -184,6 +184,51 @@ button:focus-visible {
   }
 }
 
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto 20px;
+  width: 90%;
+}
+
+.dashboard-card {
+  position: relative;
+  background-color: #2a2a2a;
+  padding: 4px 8px; /* Reducido: 4px arriba/abajo, 8px izquierda/derecha */
+  border-radius: 8px;
+  text-align: center;
+}
+
+.dashboard-card h3 {
+  margin: 2px 0; /* Reducido: solo 2px arriba y abajo */
+  color: #646cff;
+  font-size: 0.9rem;
+}
+
+.dashboard-card p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Colores para los números */
+.dashboard-card.income p {
+  color: #4caf50;
+}
+
+.dashboard-card.expense p {
+  color: #f44336;
+}
+
+.dashboard-card.balance p.positive {
+  color: #4caf50;
+}
+
+.dashboard-card.balance p.negative {
+  color: #f44336;
+}
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .container {
