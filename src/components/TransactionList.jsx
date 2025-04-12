@@ -24,10 +24,11 @@ function TransactionList({transactions=[], filter, onDeleteTransaction}) {
         {(!filteredTransactions||filteredTransactions.length === 0) ? (
           <li className="no-transactions">No hay transacciones aún</li>
         ) : (
-          filteredTransactions.map((transaction) =>( 
+          filteredTransactions.map((transaction, index) =>( 
           <li 
             key={transaction.id} 
             className={`transaction-item ${removingId === transaction.id ? 'removing' : ''}`}>
+            <span className="transaction-number">{index + 1}.</span>
             <span className="transaction-description">{transaction.description}</span>
             <span className="transaction-amount">${transaction.amount}</span>
             <span className={`transaction-type ${transaction.type}`}>
