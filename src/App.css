@@ -152,6 +152,7 @@ button:focus-visible {
 .transaction-amount {
   flex: 1;
   text-align: right;
+  font-weight: bold;
   color: #646cff;
 }
 
@@ -159,6 +160,7 @@ button:focus-visible {
   flex: 1;
   text-align: right;
   font-style: italic;
+  font-weight: bold;
   margin: 0 15px;
 }
 
