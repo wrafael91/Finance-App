@@ -12,17 +12,17 @@ function Dashboard({ transactions }) {
   return (
     <div className="dashboard">
       <div className="dashboard-card balance">
-        <h3>Balance Total</h3>
+        <h3>Total Balance</h3>
         <p className={`balance ${balance >= 0 ? 'positive' : 'negative'}`}>
           ${balance.toLocaleString('es-ES')}
         </p>
       </div>
       <div className="dashboard-card income">
-        <h3>Ingresos</h3>
+        <h3>Income</h3>
         <p className="income">${totalIncome.toLocaleString('es-ES')}</p>
       </div>
       <div className="dashboard-card expense">
-        <h3>Gastos</h3>
+        <h3>Expenses</h3>
         <p className="expense">${totalExpenses.toLocaleString('es-ES')}</p>
       </div>
     </div>

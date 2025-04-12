@@ -33,15 +33,15 @@ function App() {
   console.log('Filtro actual en App:', filter);
   return (
     <div className='container'>
-      <h1>Mi App de Finanzas</h1>
+      <h1>Finance Tracker App</h1>
       <Dashboard transactions={transactions} />
       <TransactionForm onAddTransaction={addTransaction} />
       <div className="filter-container">
-        <label>Filtrar por:</label>
+        <label>Filter by:</label>
           <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-            <option value="all">Todos</option>
-            <option value="income">Ingresos</option>
-            <option value="expense">Gastos</option>
+            <option value="all">All</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
           </select>
       </div>
       <TransactionList 

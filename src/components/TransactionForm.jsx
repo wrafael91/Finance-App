@@ -9,12 +9,12 @@ function TransactionForm({onAddTransaction}) {
     e.preventDefault();
 
     if (!description || !amount) {
-      alert('Por favor completa todos los campos');
+      alert('Please complete all fields');
       return;
     }
 
     if (isNaN(amount)){
-      alert('Por favor ingresa un monto válido');
+      alert('Please enter a valid amount');
       return;
     }
 
@@ -31,11 +31,11 @@ function TransactionForm({onAddTransaction}) {
 
   return (
     <div>
-      <h3>Agregar Transacción</h3>
+      <h3>Add Transaction</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            Descripción:
+            Description:
             <input 
               type="text"
               value={description}
@@ -45,7 +45,7 @@ function TransactionForm({onAddTransaction}) {
         </div>
         <div>
           <label>
-            Monto:
+            Amount:
             <input 
               type="number"
               value={amount}
@@ -55,17 +55,17 @@ function TransactionForm({onAddTransaction}) {
         </div>
         <div>
           <label>
-            Tipo:
+            Type:
             <select
               value={type}
               onChange={(e) => setType(e.target.value)}
             >
-              <option value="income">Ingreso</option>
-              <option value="expense">Gasto</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
             </select>
           </label>
         </div>
-        <button type="submit">Agregar</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );

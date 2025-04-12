@@ -19,10 +19,10 @@ function TransactionList({transactions=[], filter, onDeleteTransaction}) {
 
   return (
     <div>
-      <h3>Lista de Transacciones</h3>
+      <h3>Transaction List</h3>
       <ul>
         {(!filteredTransactions||filteredTransactions.length === 0) ? (
-          <li className="no-transactions">No hay transacciones aún</li>
+          <li className="no-transactions">There are no transactions yet</li>
         ) : (
           filteredTransactions.map((transaction, index) =>( 
           <li 
@@ -32,14 +32,14 @@ function TransactionList({transactions=[], filter, onDeleteTransaction}) {
             <span className="transaction-description">{transaction.description}</span>
             <span className="transaction-amount">${transaction.amount.toLocaleString('es-ES')}</span>
             <span className={`transaction-type ${transaction.type}`}>
-              {transaction.type === 'income' ? 'Ingreso' : 'Gasto'}
+              {transaction.type === 'income' ? 'Income' : 'Expense'}
             </span>
             <button
               className="delete-button"
               onClick={() => handleDelete(transaction.id)}
               disabled={removingId === transaction.id}
             >
-              Eliminar
+              Delete
             </button>
           </li>
           ))
