@@ -30,7 +30,7 @@ function TransactionList({transactions=[], filter, onDeleteTransaction}) {
             className={`transaction-item ${removingId === transaction.id ? 'removing' : ''}`}>
             <span className="transaction-number">{index + 1}.</span>
             <span className="transaction-description">{transaction.description}</span>
-            <span className="transaction-amount">${transaction.amount}</span>
+            <span className="transaction-amount">${transaction.amount.toLocaleString('es-ES')}</span>
             <span className={`transaction-type ${transaction.type}`}>
               {transaction.type === 'income' ? 'Ingreso' : 'Gasto'}
             </span>
