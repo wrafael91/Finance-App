@@ -50,6 +50,10 @@ ul {
   margin: 0 auto;
   width: 100%;
   max-width: 800px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #646cff;
+  border-radius: 8px;
 }
 
 /* Formularios */
@@ -67,7 +71,7 @@ select {
 }
 
 form button {
-  margin-bottom: 20px; /* Agrega espacio debajo del botón */
+  margin-bottom: 20px; 
 }
 
 /* Botones */
@@ -110,7 +114,7 @@ button:focus-visible {
 .transaction-number {
   min-width: 25px;
   margin-right: 10px;
-  color: #646cff; /* Color morado que ya usas */
+  color: #646cff; /* Color morado */
   font-weight: bold;
 }
 
